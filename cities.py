@@ -55,11 +55,17 @@ class CitiesProblem(Problem):
         # that here in __init__, once, instead of recomputing it every time
         # successors() is called.
         self.edges = edges
+
+        #created a dictionary to store neighbors
         self.adj = {}
-        #created a dictionary with neighbors
+        #format:
         #('Arlington', [('Berkshire', 3), ('Chelmsford', 4), ('Everett', 9)])
         for e in self.edges:
             #print("Debug Edges", e)
+            #prints ('Arlington', 'Berkshire', 3) from config file
+            #e[0] is Arlington -- inside setdefault as the key, [] as the value
+            #e[1] is Berkshire -- e1 and e2 is added as a tuple
+            #e[2] is the cost
             self.adj.setdefault(e[0], []).append((e[1], e[2]))
             self.adj.setdefault(e[1], []).append((e[0], e[2]))
 
@@ -87,13 +93,15 @@ class CitiesProblem(Problem):
         # e.g. just the destination city name. `cost` is NOT just "yield
         # ..., 1" -- that's the whole point of this puzzle. Look up the
         # actual road cost.
+
         #for every neighbor / cost (adj) connected to current state
         action = ""
         for city in self.adj.get(state):
             #print("Debug successors: ", city)
-            action = city[0]
-            next_state = city[0]
-            cost = city[1]
+            #prints ('Berkshire', 3) all the neighbors of state (current location)
+            action = city[0] #going to city[0]
+            next_state = city[0] #next state is also the city you're going to
+            cost = city[1] #cost, GIVEN
             #print("Debug: ", action, next_state, cost)
             yield action, next_state, cost
 

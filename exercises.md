@@ -78,7 +78,7 @@ and include them in your submission:
 - Go find where the `edges` line for that direct road is in the config
   file. What's its cost? What's the total cost of the other route? Which is
   actually cheaper?
-    Thhe direct road from ("Arlington","Everett",9) has a cost of 9. For the other multi-node route: Arlington to Berkshire is 3, Berkshire to Dover is 2, Dover to Everett is 3 with a total cost of (3+2+3) 8.
+    The direct road from ("Arlington","Everett",9) has a cost of 9. For the other multi-node route: Arlington to Berkshire is 3, Berkshire to Dover is 2, Dover to Everett is 3 with a total cost of (3+2+3) 8.
 
 If `bfs` and `unicost` return the exact same route here, something is
 probably wrong -- this config file was built specifically so they'd

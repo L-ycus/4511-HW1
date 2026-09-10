@@ -265,15 +265,21 @@ def iterative_deepening_dfs(problem, max_depth=1000):
     #print("pre MAX DEPTH: ", max_depth)
     for i in range(max_depth):
         #print("MAX DEPTH: ", i)
-        result, hit_cutoff = depth_first_search(problem, i) #takes the two things returned by dfs and separates them    
+        #takes the two things returned by dfs and separates them
+        #result = solution, nodes_created, max_frontier, max_explored, cost
+        #hit_cutoff = boolean that says not to keep going down
+        result, hit_cutoff = depth_first_search(problem, i)    
         nodes_created += result.nodes_created
         max_frontier = max(max_frontier, result.max_frontier)
-                    
+
+        #found a solution with this depth i
         if(result.solution is not None):
             return SearchResult(result.solution, nodes_created, max_frontier, 0, result.cost)
+        #if you didn't hit cut off don't loop
         if(not hit_cutoff):
             break
-    
+
+    #went through the whole range and didn't find any solution
     return SearchResult(None, nodes_created, max_frontier, 0, 0)
     #raise NotImplementedError
 
