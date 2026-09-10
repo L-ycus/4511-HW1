@@ -67,6 +67,7 @@ Run `explore.py`. Look at what `bfs` and `unicost` each return for the given
 
 Write up your answers to the following -- a few sentences each is plenty --
 and include them in your submission:
+AI Disclosure Note: Gemini was used for debugging and explanations, used the gemini prompt and didn't copy straight from the answers.
 
 - Do they find the same route? The same cost?
     They did not find the same route. BFS went from Arlington to Everett with a cost of 9. Unicost went from Arlington -> Berkshire -> Dover -> Everett, for a slightly lower cost of 8.
